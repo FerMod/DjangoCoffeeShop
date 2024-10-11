@@ -1,0 +1,13 @@
+<h1>Product Lists</h1>
+<ul>
+  {% for product in products %}
+    <li>
+      {{ product.name }}
+      <p>{{ product.description }}</p>
+      <p>{{ product.price }}</p>
+      {% if product.photo %}
+        <img src="{{ product.photo.url }}" alt="{{ product.name }}" style="max-height; 100px;" />
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
