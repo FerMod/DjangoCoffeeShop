@@ -17,5 +17,8 @@ Including another URLconf
 
 from django.urls import path
 
+from .views import MyOrderView
+
 urlpatterns = [
+    path('my_order', MyOrderView.as_view(), name='my_order')
 ]
