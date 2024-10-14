@@ -8,4 +8,4 @@ class MyOrderView(DetailView):
     context_object_name = "order"
 
     def get_object(self, queryset = ...):
-        return Order.objects.filter(is_active=True).first()
+        return Order.objects.filter(is_active=True, user=self.request.user).first()
