@@ -16,6 +16,7 @@ import environ
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 env = environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
@@ -23,10 +24,10 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-bg9oaw#u*l2ba*6+w$yn58#cr%em7gl2%!hue(f3ulzgq%__)&'
+SECRET_KEY = env.str('SECRET_KEY', 'django-insecure-bg9oaw#u*l2ba*6+w$yn58#cr%em7gl2%!hue(f3ulzgq%__)&')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = env.bool('DEBUG', False)
 
 ALLOWED_HOSTS = []
 
